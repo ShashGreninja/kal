@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {encodeSpeech} from '../src/game/services/wave.mjs';
+const tone=(amplitude,length=16000)=>Float32Array.from({length},(_,i)=>amplitude*Math.sin(i*Math.PI/20));
+test('quiet speech receives bounded gain and valid mono WAV timing',()=>{const d=new DataView(encodeSpeech([tone(.02)]));assert.equal(d.getUint32(24,true),16000);assert.equal(d.getUint32(40,true),32000);assert.equal(d.getUint16(22,true),1);assert.ok(d.getInt16(64,true)>2500&&d.getInt16(64,true)<2700);});
+test('silent left channel does not discard voice on the right',()=>{const d=new DataView(encodeSpeech([new Float32Array(16000),tone(.3)]));assert.ok(d.getInt16(64,true)>27000);});
+test('silence is detected before sending and loud input does not clip',()=>{assert.throws(()=>encodeSpeech([new Float32Array(16000)]),/NO_AUDIO/);const d=new DataView(encodeSpeech([tone(1.5)]));let peak=0;for(let i=44;i<d.byteLength;i+=2)peak=Math.max(peak,Math.abs(d.getInt16(i,true)));assert.ok(peak<28000);});
