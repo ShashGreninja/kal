@@ -1,0 +1,104 @@
+.game-page { overflow: hidden; }
+.game, .stage { width: 100%; height: 100svh; height: 100dvh; min-height: 320px; }
+.stage { position: relative; isolation: isolate; overflow: hidden; background: var(--ground); }
+.camera { position: absolute; inset: 0; overflow: hidden; transition: transform .7s var(--ease), opacity .5s; }
+.world { position: absolute; inset: 0 auto 0 0; width: var(--world-width, 100%); height: 100%; will-change: transform; }
+.backdrop { position: absolute; inset: 0; }
+.actor { position: absolute; bottom: var(--floor, 6%); left: var(--x, 50%); height: 39%; transform: translateX(-50%) scaleX(var(--face, 1)); pointer-events: none; }
+.actor svg { height: 100%; width: auto; overflow: visible; }
+.actor.player { z-index: 2; }
+.actor.npc { height: 38%; }
+.actor[data-person="nirmala"] { height: 35%; }
+.actor[data-person="retired"] { height: 37%; }
+.rain { position: absolute; inset: -140px 0 0; z-index: 3; pointer-events: none; opacity: .27; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='173' height='139'%3E%3Cpath d='m7 4-1 15m25 45-1 12m35-30-2 22m43-52-1 16m37 35-2 20m-35 14-1 11m61-16-2 16m-124 2-1 12m32-24-2 17' fill='none' stroke='%23e4eee4' stroke-opacity='.46' stroke-width='1'/%3E%3C/svg%3E"); animation: rainfall .7s linear infinite; }
+@keyframes rainfall { to { transform: translateY(139px); } }
+.world-shade { position: absolute; inset: 0; pointer-events: none; z-index: 3; background: linear-gradient(#080b0b88, transparent 24%, transparent 72%, #080b0b9e); } /* taste-skill-ignore: neutral readability scrim over the game artwork. */
+.hud { position: absolute; z-index: 4; inset: max(24px, env(safe-area-inset-top)) var(--gutter) auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; pointer-events: none; }
+.hud-actions { display: flex; gap: 6px; pointer-events: auto; }
+.hud-button { background: #121715b8; min-height: 44px; font-size: 14px; padding: .65rem 1rem; }
+.icon-button { width: 44px; height: 44px; padding: 0; flex: none; }
+.location { display: flex; gap: 18px; align-items: center; }
+#year { font: 400 42px/.95 var(--display); letter-spacing: -.05em; color: var(--ink); }
+.location div { display: flex; flex-direction: column; gap: 3px; }
+#room { font-size: 16px; }
+#chapter { font-size: 13px; color: var(--muted); }
+.exit { position: absolute; z-index: 3; bottom: 25%; background: #1013129e; font-size: 14px; max-width: 220px; }
+.exit span { max-width: 140px; }
+.exit-left { left: 1%; }
+.exit-right { right: 1%; }
+.scene-point { position: absolute; width: 44px; height: 44px; min-height: 44px; padding: 0; border-radius: 50%; transform: translateX(-50%); background: transparent; z-index: 3; opacity: 0; transition: opacity .5s; }
+.scene-point.near, .scene-point:focus-visible { opacity: 1; }
+.scene-point:hover { transform: translateX(-50%); background: #10131266; }
+.point-ring { width: 9px; height: 9px; border-radius: 50%; background: #f3eee2c7; }
+.stage:not([data-mode="explore"]) .scene-point, .stage:not([data-mode="explore"]) .exit { visibility: hidden; }
+.lower-hud { position: absolute; inset: auto var(--gutter) max(24px, env(safe-area-inset-bottom)); z-index: 4; display: flex; justify-content: space-between; pointer-events: none; }
+.lower-hud button { pointer-events: auto; }
+.walk-controls { display: flex; align-items: center; gap: 6px; }
+.walk-controls button { width: 44px; padding: 0; min-height: 44px; background: #101312a3; }
+.shift { background: #101312cc; padding: .65rem 1.05rem; gap: 12px; }
+.shift > .icon { width: 28px; height: 28px; color: var(--accent); }
+.shift span { font-size: 14px; text-align: left; }
+.shift small { font: 18px var(--display); display: block; color: var(--accent); margin-top: 2px; }
+.shift kbd, .interact kbd { font: 13px var(--body); background: #ffffff16; border-radius: 4px; padding: 4px 7px; }
+.interact { position: absolute; z-index: 4; bottom: 15%; left: 50%; transform: translateX(-50%); background: #111613e8; font-size: 15px; padding: .6rem 1rem .6rem .6rem; gap: 12px; max-width: 90%; }
+.interact:hover { transform: translateX(-50%) translateY(-3px); }
+.tutorial { position: absolute; z-index: 4; bottom: 23%; left: 50%; transform: translateX(-50%); padding: .65rem 1.2rem; border-radius: 999px; background: #101312cc; font-size: 14px; text-align: center; width: max-content; max-width: 80%; pointer-events: none; }
+.notification { position: absolute; z-index: 8; top: 105px; left: 50%; transform: translateX(-50%); max-width: 80%; padding: .55rem 1rem; border-radius: 999px; background: #111613d9; font-size: 14px; text-align: center; pointer-events: none; }
+.notification:empty { display: none; }
+.overlay { position: absolute; inset: 0; z-index: 5; }
+.title-screen { display: flex; align-items: center; padding: var(--gutter); background: linear-gradient(90deg,#0a0f0ce0, #0a0f0c38 78%); } /* taste-skill-ignore: neutral readability scrim over the game artwork. */
+.game-home { position: absolute; top: 28px; display: flex; align-items: center; gap: 14px; text-decoration: none; font: 25px var(--display); }
+.title-content { max-width: 650px; margin-left: 6vw; animation: arrive 1.2s var(--ease) both; }
+.title-content h1 { font-size: clamp(56px, 7vw, 100px); line-height: 1; margin-bottom: 28px; }
+.title-content > p { font-size: 19px; margin-bottom: 30px; }
+.title-content .title-note { font-size: 14px; color: var(--muted); margin-top: 22px; }
+.title-place { position: absolute; right: var(--gutter); bottom: 40px; font-size: 15px; line-height: 1.5; text-align: right; }
+.intro-screen { background: linear-gradient(transparent 25%, #0a0f0cdb); } /* taste-skill-ignore: neutral readability scrim over the game artwork. */
+.intro-location { position: absolute; inset: 7vh var(--gutter) auto; display: flex; flex-direction: column; gap: 6px; font: 20px var(--display); }
+.intro-location span:last-child { color: var(--muted); font: 15px var(--body); }
+#skip-intro { position: absolute; top: 6vh; right: var(--gutter); font-size: 14px; }
+.intro-copy { position: absolute; bottom: 10%; left: max(var(--gutter), 12vw); width: min(600px, 75%); }
+.intro-copy h2 { font-size: clamp(34px, 4vw, 58px); margin-bottom: 20px; }
+.intro-copy p { font: 400 clamp(19px, 2vw, 25px)/1.55 var(--display); }
+.intro-copy button { padding-left: 0; }
+[data-mode="intro"] .camera { transform: scale(1.04); transform-origin: 60% 50%; }
+[data-transition="conversation"] .camera { transform: scale(1.09); }
+.transition { position: absolute; inset: 0; z-index: 10; pointer-events: none; background: #0b0e0c; opacity: 0; transition: opacity .3s ease; }
+.transition.on { opacity: 1; }
+[data-transition="era"] .transition { background: #e0d6bc; }
+@keyframes arrive { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@media (max-width: 700px) {
+  .hud { inset: 20px 20px auto; }
+  .location { gap: 10px; }
+  #year { font-size: 32px; }
+  #room { max-width: 160px; font-size: 14px; }
+  #chapter { display: none; }
+  .hud-button { padding: .65rem; }
+  #journal span { display: none; }
+  #fullscreen { display: none; }
+  .lower-hud { inset: auto 20px 22px; }
+  .title-content { margin-left: 0; }
+  .title-content h1 { max-width: 7ch; }
+  .title-content > p { font-size: 17px; }
+  .title-place { bottom: 28px; font-size: 14px; }
+  .intro-copy { left: 24px; width: calc(100% - 48px); bottom: 12%; }
+  .intro-copy h2 { font-size: 38px; }
+  .tutorial { border-radius: 18px; bottom: 24%; font-size: 13px; }
+  .notification { top: 84px; width: max-content; max-width: 88%; font-size: 13px; }
+  .interact { bottom: 17%; font-size: 14px; }
+}
+@media (max-height: 530px) and (min-width: 701px) {
+  .hud { top: 16px; }
+  .intro-copy { bottom: 5%; }
+  .intro-copy h2 { font-size: 34px; }
+  .intro-copy p { font-size: 18px; }
+  .title-content h1 { font-size: 62px; }
+  .title-content > p { margin-bottom: 14px; }
+  .title-place { bottom: 20px; }
+  .title-note { display: none; }
+}
+
+/* Keep the current question visible without covering the walkable scene. */
+.case-question { position:absolute; z-index:4; top:106px; left:32px; margin:0; max-width:min(48ch,65vw); font-size:14px; color:var(--ink); text-shadow:0 2px 5px #000; pointer-events:none; }
+.stage:not([data-mode="explore"]) .case-question { display:none; }
+@media(max-width:600px) { .case-question { top:86px; left:20px; max-width:80vw; font-size:13px; } }
