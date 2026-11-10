@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: kal-the-last-train
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/capabilities
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: NODE_VERSION
+        value: 24.18.0
+      - key: GNANI_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: DIALOGUE_BASE_URL
+        sync: false
+      - key: DIALOGUE_API_KEY
+        sync: false
+      - key: DIALOGUE_MODEL
+        sync: false
