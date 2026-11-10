@@ -4,6 +4,10 @@ In 2028, Anay returns to a closed railway station in the Western Ghats. The offi
 
 KAL is a browser mystery built for the Gnani hackathon. Ask witnesses questions in Hindi, English or Hinglish, show them evidence, and work out what the railway left out of its report.
 
+## Basic architecture
+
+We built KAL as a browser game with a Vite frontend and a Node.js backend. When you speak to a witness, Gnani Prisma transcribes your question so you can review it before sending. The backend pulls the facts that witness can share from Supabase, based on the year and the evidence you’ve found, then passes them to the language model. Gnani Timbre reads the reply aloud. The game’s own rules decide whether the reply unlocks a clue, and Supabase saves your progress.
+
 [Play the hosted demo](https://kal-the-last-train.onrender.com/) · [One-page submission pitch](PITCH.md)
 
 ## Run it locally
