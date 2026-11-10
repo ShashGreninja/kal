@@ -1,0 +1,221 @@
+html { scroll-behavior:smooth; scroll-padding-top:28px; }
+body { --ground:#30231f; --surface:#44312a; --ink:#f3e3ce; --muted:#d5bfa9; --accent:#dfb079; --accent-ink:#30231f; --display:'Young Serif',Georgia,serif; --body:'Source Serif 4',Georgia,serif; --gutter:clamp(20px,2.2vw,32px); color:var(--ink); background:var(--ground); font-family:var(--body); overflow-x:clip; }
+.skip-link { position:fixed; top:-80px; left:24px; z-index:20; padding:14px 22px; background:var(--ink); color:var(--ground); }
+.skip-link:focus { top:16px; }
+.site-header { margin:0 var(--gutter); padding:26px 0; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.wordmark { font:26px/1 var(--display); text-decoration:none; letter-spacing:-.03em; }
+.site-header nav { display:flex; gap:36px; }
+.site-header nav a,.nav-play { font-size:16px; text-decoration:none; }
+.site-header a { transition:transform .25s,opacity .25s; }
+.site-header a:hover { transform:translateY(-2px); opacity:.7; }
+.nav-play { background:var(--ink); color:var(--ground); border-radius:999px; padding:12px 26px; }
+.hero { margin:30px var(--gutter) 0; }
+.hero-heading { display:grid; grid-template-columns:1fr 1fr; gap:8vw; align-items:center; padding:0 3vw; }
+.hero h1 { font-size:clamp(100px,15vw,220px); line-height:1; letter-spacing:-.05em; margin:0; animation:title-arrival 1.1s var(--ease) both; }
+.film-title { font-size:26px; margin:10px 0 0; }
+.hero-intro > p:first-child { font-size:26px; line-height:1.35; margin-bottom:22px; }
+.hero-description { font-size:18px; max-width:42ch; margin-bottom:26px; }
+.play-link { padding:15px 30px; min-height:54px; font-size:18px; font-weight:600; justify-content:center; text-align:center; }
+.primary:hover { background:#efc896; color:#30231f; }
+.demo-note { display:block; font-size:14px; margin-top:16px; }
+.hero-gallery { display:grid; grid-template-columns:repeat(12,1fr); margin-top:48px; gap:20px; align-items:end; }
+.hero-gallery figure { margin:0; }
+.hero-main { grid-column:4 / 13; grid-row:1; }
+.hero-art { height:clamp(300px,31vw,470px); border-radius:150px 150px 8px 8px; }
+.hero-memory { grid-column:1 / 5; grid-row:1; position:relative; transform:translateY(34px); }
+.memory-art { height:clamp(180px,17vw,260px); border-radius:70px 70px 8px 8px; }
+figcaption { font-size:14px; margin-top:14px; }
+.section { margin:150px var(--gutter) 0; }
+.section h2 { font-size:clamp(36px,4vw,58px); line-height:1.1; letter-spacing:-.035em; margin-bottom:30px; }
+.section p { font-size:18px; }
+.story-heading { display:grid; grid-template-columns:1.3fr 1fr; align-items:end; gap:8vw; }
+.story-heading p { max-width:34ch; font-size:26px; line-height:1.4; margin-bottom:30px; }
+.story-body { display:grid; grid-template-columns:1.1fr 1fr; gap:9vw; align-items:center; margin-top:30px; }
+.story-body figure { margin:0; }
+.story-scene { height:390px; border-radius:6px 100px 6px 6px; }
+.story-copy { max-width:46ch; padding-right:3vw; }
+.story-copy p { margin-bottom:26px; }
+.text-link { font-size:18px; display:inline-block; padding:10px 0; }
+.section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:7vw; margin-bottom:42px; }
+.section-heading h2 { margin:0; }
+.section-heading p { max-width:34ch; margin:0; }
+.era-view { position:relative; height:clamp(340px,40vw,580px); overflow:hidden; border-radius:100px 8px 100px 8px; }
+.era-scene { position:absolute; inset:0; }
+.era-future { clip-path:inset(0 0 0 50%); }
+.era-control { max-width:650px; margin:24px auto 0; }
+.era-control label { display:flex; justify-content:space-between; font:26px/1 var(--display); }
+.era-control input { width:100%; height:48px; accent-color:var(--accent); cursor:ew-resize; margin:10px 0; }
+.era-control output { display:block; text-align:center; font-size:14px; }
+.witness-run { display:grid; grid-template-columns:1.15fr .85fr 1fr; gap:28px; align-items:end; }
+.witness-image { overflow:hidden; height:340px; border-radius:80px 80px 6px 6px; }
+.witness-nirmala .witness-image { height:440px; }
+.witness-kulkarni .witness-image { height:380px; }
+.witness-panel h3 { font:26px/1.2 var(--display); margin:24px 0 14px; }
+.witness-panel p { margin:0; font-size:18px; }
+.people-note { max-width:54ch; margin:40px 0 0 auto; }
+.visit-layout { display:grid; grid-template-columns:1fr 1.5fr; gap:10vw; margin-top:60px; }
+.visit-note { max-width:33ch; }
+.visit-note > p:first-child { font-size:26px; line-height:1.35; }
+.visit-note .play-link { margin-top:22px; }
+.questions details { padding:0 20px 22px; margin-bottom:16px; border-radius:18px; }
+.questions details[open] { background:var(--surface); padding-top:10px; }
+.questions summary { list-style:none; cursor:pointer; min-height:50px; padding:12px 32px 12px 0; position:relative; font-size:26px; line-height:1.35; }
+.questions summary::-webkit-details-marker { display:none; }
+.questions summary::after { content:'+'; position:absolute; right:0; top:12px; }
+.questions details[open] summary::after { content:'−'; }
+.questions details p { font-size:18px; margin:10px 0 0; max-width:48ch; }
+.footer { margin-top:150px; background:#211916; color:var(--ink); padding:54px var(--gutter) 20px; overflow:hidden; }
+.footer-top { display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:30px; align-items:start; }
+.footer h2 { font-size:26px; line-height:1.2; }
+.footer-top p,.footer-top > a:not(.button) { font-size:16px; margin:0; }
+.footer .primary { background:var(--ground); color:var(--ink); justify-self:start; }
+.footer-wordmark { font:clamp(150px,32vw,490px)/1 var(--display); letter-spacing:-.05em; margin:35px 0 -20px; text-align:center; }
+@keyframes title-arrival { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+@media(max-width:1000px) {
+ .hero-heading { padding:0; gap:40px; }
+ .hero h1 { font-size:18vw; }
+ .hero-intro > p:first-child { font-size:26px; }
+ .story-heading { gap:40px; }
+ .story-heading p { font-size:18px; }
+ .story-body { gap:40px; }
+ .story-scene { height:360px; }
+ .witness-run { gap:20px; }
+ .witness-image { height:280px; }
+ .witness-nirmala .witness-image { height:340px; }
+ .witness-kulkarni .witness-image { height:300px; }
+ .witness-panel h3 { font-size:26px; }
+ .visit-layout { gap:40px; }
+ .questions summary { font-size:26px; }
+ .footer-top { grid-template-columns:1fr 1fr; gap:30px; }
+}
+@media(max-width:600px) {
+ .site-header { padding:20px 0; gap:14px; }
+ .site-header nav { gap:18px; }
+ .site-header nav a { font-size:14px; }
+ .site-header nav a[href="#people"],.nav-play { display:none; }
+ .hero { margin-top:18px; }
+ .hero-heading { display:block; }
+ .hero h1 { font-size:31vw; }
+ .film-title { font-size:26px; margin:0 0 26px; }
+ .hero-intro > p:first-child { font-size:26px; margin-bottom:18px; }
+ .hero-description { font-size:18px; margin-bottom:22px; }
+ .demo-note { font-size:14px; }
+ .hero-gallery { margin-top:30px; gap:12px; }
+ .hero-main { grid-column:3 / 13; }
+ .hero-art { height:240px; border-radius:90px 90px 4px 4px; }
+ .hero-memory { grid-column:1 / 7; transform:translateY(60px); }
+ .memory-art { height:150px; border-radius:50px 50px 4px 4px; }
+ .hero-main figcaption { margin-left:100px; max-width:24ch; }
+ figcaption { font-size:14px; }
+ .section { margin-top:110px; }
+ .story { margin-top:150px; }
+ .section h2 { font-size:34px; line-height:1.15; }
+ .story-heading { display:block; }
+ .story-heading p { margin-bottom:24px; }
+ .story-body { display:flex; flex-direction:column; gap:28px; margin-top:24px; }
+ .story-body figure { width:100%; }
+ .story-scene { height:260px; border-radius:4px 70px 4px 4px; }
+ .story-copy { padding:0; }
+ .section-heading { display:block; margin-bottom:28px; }
+ .section-heading h2 { margin-bottom:22px; }
+ .section p { font-size:18px; }
+ .era-view { height:320px; border-radius:60px 4px 60px 4px; }
+ .witness-run { display:grid; grid-template-columns:1fr; gap:40px; }
+ .witness-panel { width:88%; }
+ .witness-jadhav { justify-self:end; }
+ .witness-image,.witness-nirmala .witness-image,.witness-kulkarni .witness-image { height:290px; border-radius:75px 75px 4px 4px; }
+ .witness-panel h3 { margin-top:20px; }
+ .people-note { margin-top:32px; }
+ .visit-layout { display:block; margin-top:30px; }
+ .visit-note { max-width:none; }
+ .questions { margin-top:40px; }
+ .questions details { padding-left:14px; padding-right:14px; }
+ .questions summary { font-size:22px; }
+ .footer { margin-top:100px; padding-top:34px; }
+ .footer-top { gap:24px; }
+ .footer-top p,.footer-top > a:not(.button) { font-size:14px; }
+ .footer h2 { font-size:26px; }
+ .footer .play-link { font-size:16px; padding:12px 20px; }
+ .footer-wordmark { font-size:31vw; margin-top:44px; margin-bottom:0; }
+}
+
+/* Premiere: the station opens the page; the title and action occupy a solid marquee. */
+.premiere { display:flex; flex-direction:column; margin:0 var(--gutter); }
+.premiere .hero-gallery { order:-1; display:block; margin:0; }
+.premiere .hero-main { display:block; }
+.premiere .hero-art { height:clamp(300px,44vh,520px); border-radius:4px; }
+.premiere .hero-main figcaption,.premiere .hero-memory { display:none; }
+.premiere .hero-heading { padding:32px 0 0; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.premiere h1 { font-size:clamp(100px,12vw,174px); line-height:.9; }
+.premiere .film-title { margin:16px 0 0; font-size:26px; }
+.premiere .hero-intro > p:first-child { font-size:26px; margin:0 0 16px; }
+.premiere .hero-description { font-size:18px; margin-bottom:20px; }
+.premiere .demo-note { display:inline-block; margin:0 0 0 20px; font-size:14px; max-width:18ch; vertical-align:middle; }
+.story-heading { grid-template-columns:1fr 1fr; }
+.story-scene,.era-view { border-radius:4px; }
+.witness-image,.witness-nirmala .witness-image,.witness-kulkarni .witness-image { border-radius:50% 50% 4px 4px; }
+.era-control input { accent-color:var(--accent); }
+.nav-play { background:var(--surface); color:var(--ink); }
+.section { margin-top:128px; }
+.footer .primary { background:var(--accent); color:var(--accent-ink); }
+@media(max-width:700px) {
+ .premiere .hero-art { height:32vh; min-height:220px; }
+ .premiere .hero-heading { display:block; padding-top:24px; }
+ .premiere h1 { font-size:100px; }
+ .premiere .film-title { font-size:22px; margin:12px 0 24px; }
+ .premiere .hero-intro > p:first-child { font-size:22px; }
+ .premiere .hero-description { font-size:16px; }
+ .premiere .demo-note { font-size:12px; margin-left:12px; max-width:15ch; }
+ .premiere .play-link { font-size:16px; padding:14px 22px; }
+ .section { margin-top:88px; }
+}
+
+@media(max-width:700px) { .premiere .demo-note { font-size:13px; } }
+
+/* Character-led opening: the archive portrait is the subject, not a backdrop for copy. */
+body { --ground:#241c19; --surface:#3b2d27; --ink:#f0e4d5; --muted:#d2bda8; }
+.site-header { padding:24px 0; }
+.character-hero { display:grid; grid-template-columns:23% 48% 23%; gap:3%; min-height:750px; height:calc(100svh - 100px); max-height:1000px; margin:0 var(--gutter); align-items:center; overflow:hidden; }
+.hero-left { align-self:stretch; display:flex; flex-direction:column; justify-content:center; }
+.character-hero h1 { font-size:9vw; line-height:1; margin:0; letter-spacing:-.06em; }
+.character-hero .film-title { font-size:26px; margin:12px 0 48px; }
+.hero-left figure { margin:0; max-width:240px; }
+.character-hero .hero-art { height:170px; border-radius:3px; }
+.hero-left figcaption { font-size:16px; line-height:1.5; margin-top:20px; }
+.hero-character { align-self:stretch; overflow:hidden; mix-blend-mode:screen; }
+.hero-character img { width:100%; height:100%; object-fit:cover; object-position:50% 15%; }
+.hero-right h2 { font-size:30px; line-height:1.2; }
+.hero-right p { font-size:18px; line-height:1.6; }
+.hero-right .demo-note { font-size:14px; margin:20px 0 10px; }
+.hero-right .play-link { width:100%; padding:18px 20px; }
+.story { background:var(--surface); margin:120px 0 0; padding:64px var(--gutter); }
+.story-body { gap:64px; }
+.story-scene { height:420px; }
+.people .section-heading { align-items:start; }
+.witness-image,.witness-nirmala .witness-image,.witness-kulkarni .witness-image { border-radius:3px; }
+.era-view { border-radius:3px; }
+@media(max-width:1000px) and (min-width:701px) {
+ .character-hero { grid-template-columns:24% 42% 28%; min-height:650px; height:auto; }
+ .hero-right h2 { font-size:26px; }
+ .hero-right p { font-size:16px; }
+ .character-hero .film-title { font-size:22px; }
+}
+@media(max-width:700px) {
+ .character-hero { grid-template-columns:1fr 1fr; gap:20px; height:auto; min-height:0; overflow:visible; }
+ .hero-left { grid-column:1; grid-row:1; }
+ .character-hero h1 { font-size:21vw; }
+ .character-hero .film-title { font-size:22px; margin:12px 0 24px; }
+ .hero-left figure { margin:0; }
+ .character-hero .hero-art { height:100px; }
+ .hero-left figcaption { font-size:13px; margin-top:12px; }
+ .hero-character { grid-column:2; grid-row:1; height:340px; }
+ .hero-character img { object-position:50% 0; }
+ .hero-right { grid-column:1 / -1; padding-top:8px; }
+ .hero-right h2 { font-size:28px; margin-bottom:16px; }
+ .hero-right p { font-size:16px; margin-bottom:20px; }
+ .hero-right .play-link { width:auto; }
+ .hero-right .demo-note { display:inline-block; max-width:15ch; margin:0 0 0 16px; font-size:13px; vertical-align:middle; }
+ .hero-right .text-link { display:none; }
+ .story { margin-top:72px; padding:40px var(--gutter); }
+ .story-scene { height:260px; }
+}

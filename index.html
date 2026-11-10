@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#30231f"><meta name="description" content="KAL — The Last Train. Explore an Indian railway station across two eras and speak to the people who remember its final service. A playable Gnani hackathon demo.">
+<title>KAL — The Last Train · Playable demo</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preload" as="image" href="/art/platform-eras.png">
+</head>
+<body>
+<a class="skip-link" href="#story">Skip to the story</a>
+<header class="site-header"><a class="wordmark" href="#top" aria-label="KAL home">KAL</a><nav aria-label="Main navigation"><a href="#story">The story</a><a href="#people">The people</a><a href="#visit">Playing KAL</a></nav><a class="nav-play" href="/play.html">Play demo</a></header>
+<main>
+<section class="hero character-hero" id="top" aria-labelledby="hero-title">
+ <div class="hero-left"><h1 id="hero-title">KAL</h1><p class="film-title">The Last Train</p><figure><div id="hero-art" class="hero-art"></div><figcaption>Devgarh, 1998.<br>One evening worth returning to.</figcaption></figure></div>
+ <div class="hero-character"><img src="/art/archivist.png" width="1024" height="1536" alt="Anay, the young archivist returning to Devgarh with his shoulder bag"></div>
+ <div class="hero-right"><h2>One last evening.</h2><p>A time-travel mystery in an Indian railway station. Explore two eras and speak to the people who remember the last train.</p><a class="button primary play-link" href="/play.html">Enter Devgarh</a><p class="demo-note">Playable Gnani hackathon demo</p><a class="text-link" href="#story">Meet Anay</a></div>
+</section>
+<section class="story section" id="story" aria-labelledby="story-title">
+ <div class="story-heading"><h2 id="story-title" data-reveal>A familiar name.<br>A different story.</h2><p data-reveal>You are Anay. You came back to catalogue a closed station, not investigate it.</p></div>
+ <div class="story-body"><figure data-reveal><div id="story-scene" class="story-scene"><img src="/art/railway-east.png" alt="The approach to the old railway outpost" width="1671" height="941"></div><figcaption>The outpost still has the closure file.</figcaption></figure><div class="story-copy"><p data-reveal>As a child, you knew Prakash as the signalman who could recognise a train by its sound. The official report remembers him as the man who sent the final service down the wrong line.</p><p data-reveal>Then a pocket instrument takes you back to that evening. The station is open. The witnesses are here. And the story isn’t finished.</p><a href="/play.html" class="text-link" data-reveal>Find out what happened</a></div></div>
+</section>
+<section class="eras section" id="eras" aria-labelledby="eras-title">
+ <div class="section-heading"><h2 id="eras-title" data-reveal>Time leaves traces.</h2><p data-reveal>The same place can tell two stories. Turn between the years and see what remains.</p></div>
+ <div class="era-view" data-reveal><div class="era-scene" id="era-past"><img src="/art/railway-east.png" alt="The tea stall in 1998" width="1671" height="941"></div><div class="era-scene era-future" id="era-future"><img src="/art/railway-east.png" alt="The tea stall in 2028" width="1671" height="941"></div></div>
+ <div class="era-control"><label for="era-dial"><span>1998</span><span>2028</span></label><input id="era-dial" type="range" min="0" max="100" value="50" aria-label="Compare Devgarh in 1998 and 2028"><output id="era-output" for="era-dial">Between two years</output></div>
+ <noscript><p>The pocket instrument switches between two versions of every location in the game.</p></noscript>
+</section>
+<section class="people section" id="people" aria-labelledby="people-title">
+ <div class="section-heading"><h2 id="people-title" data-reveal>Meet the witnesses.</h2><p data-reveal>Start with a hello. Ask what they remember. Bring a record, or stay for a cup of tea.</p></div>
+ <div class="witness-run"><article class="witness-panel witness-nirmala" data-reveal><div id="nirmala-portrait" class="witness-image"><img src="/art/railway-witnesses.png" alt="Nirmala offering chai" width="1448" height="1086"></div><h3>Nirmala</h3><p>The tea stall sees everyone.<br>She notices who comes and goes.</p></article><article class="witness-panel witness-jadhav" data-reveal><div id="jadhav-portrait" class="witness-image"><img src="/art/railway-witnesses.png" alt="Retired constable Jadhav" width="1448" height="1086"></div><h3>Jadhav</h3><p>A careful record keeper.<br>A memory that won’t quite settle.</p></article><article class="witness-panel witness-kulkarni" data-reveal><div id="visit-image" class="witness-image"><img src="/art/stationmaster.png" alt="Kulkarni in his office" width="1672" height="941"></div><h3>Mr Kulkarni</h3><p>Every train has its time.<br>Every decision has its reasons.</p></article></div>
+ <p class="people-note" data-reveal>Speak or type in Hindi, English, or Hinglish. These conversations follow what you say, not a list of dialogue choices.</p>
+</section>
+<section class="visit section" id="visit" aria-labelledby="visit-title">
+ <h2 id="visit-title" data-reveal>Before you arrive.</h2><div class="visit-layout"><div class="visit-note" data-reveal><p>A single-player mystery for your browser.</p><p>Explore twenty scenes across two eras. Gather records, follow memories, and leave the station’s story a little clearer.</p><a class="button primary play-link" href="/play.html">Play demo</a></div><div class="questions">
+ <details data-reveal><summary>How do I move around?</summary><p>Use A / D or the arrow keys, or tap the path. Hold Shift to walk faster. Move close to a person or object, then press E or tap its name.</p></details>
+ <details data-reveal><summary>Do I need a microphone?</summary><p>No. Every conversation works by typing. If you choose to speak, Gnani handles your voice and the characters’ spoken replies. Subtitles stay available.</p></details>
+ <details data-reveal><summary>How does time travel work?</summary><p>Find the pocket instrument, then turn its dial with Q or tap it on screen. You stay in the same place, thirty years apart. Look for what has changed.</p></details>
+ <details data-reveal><summary>What if I lose the thread?</summary><p>Your journal keeps the evidence you have discovered, your current question, and a guide to the station. Open it with J. A hint is there if you need one.</p></details>
+ <details data-reveal><summary>Can I return later?</summary><p>When saves are available, choose Continue saved visit in the same browser. Begin a new story starts with a fresh arrival and an empty journal.</p></details>
+ <details data-reveal><summary>Is this the complete game?</summary><p>This is a playable Gnani hackathon demo with a complete case. Animation, voice pronunciation, and pacing are still being refined.</p></details>
+ </div></div>
+</section>
+</main>
+<footer class="footer"><div class="footer-top"><h2>One more evening.</h2><a href="/play.html" class="button primary play-link">Enter Devgarh</a><p>The Last Train<br>A Gnani hackathon demo</p><a href="#top">Back to the beginning</a></div><div class="footer-wordmark" aria-hidden="true">KAL</div></footer>
+<script type="module" src="/src/landing/main.mjs"></script>
+</body></html>
